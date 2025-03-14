@@ -20,10 +20,18 @@ export const addDonor = async (
 };
 
 // Function to fetch all donors
-export const getDonors = async () => {
+export const getDonors = async (): Promise<
+  { id: string; name: string; bloodType: string }[]
+> => {
   try {
     const querySnapshot = await getDocs(collection(db, "donors"));
-    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    return querySnapshot.docs.map(
+      (doc): { id: string; name: string; bloodType: string } => ({
+        id: doc.id,
+        name: doc.data().name,
+        bloodType: doc.data().bloodType,
+      })
+    );
   } catch (error) {
     console.error("Error fetching donors:", error);
     return [];
