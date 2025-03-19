@@ -27,35 +27,35 @@ export default function Home() {
   };
 
   return (
-    <div className='max-w-lg mx-auto p-6'>
-      <h1 className='text-2xl font-bold mb-4'>Blood Donor List</h1>
+    <div className="max-w-lg mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Blood Donor List</h1>
 
-      <div className='mb-4'>
+      <div className="mb-4">
         <input
-          type='text'
-          placeholder='Donor Name'
+          type="text"
+          placeholder="Donor Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className='border p-2 w-full mb-2'
+          className="border p-2 w-full mb-2"
         />
         <input
-          type='text'
-          placeholder='Blood Type'
+          type="text"
+          placeholder="Blood Type"
           value={bloodType}
           onChange={(e) => setBloodType(e.target.value)}
-          className='border p-2 w-full mb-2'
+          className="border p-2 w-full mb-2"
         />
         <button
           onClick={handleAddDonor}
-          className='bg-blue-500 text-white px-4 py-2 rounded'
+          className="bg-blue-500 text-white px-4 py-2 rounded"
         >
           Add Donor
         </button>
       </div>
 
-      <ul className='border p-4 rounded'>
+      <ul className="border p-4 rounded">
         {donors.map((donor) => (
-          <li key={donor.id} className='border-b p-2'>
+          <li key={donor.id} className="border-b p-2">
             {donor.name} - {donor.bloodType}
           </li>
         ))}
